@@ -1,0 +1,6 @@
+jdbc.driver=org.postgresql.Driver
+#jdbc.url=jdbc:postgresql://202.121.180.59:5432/AncientMap
+jdbc.url=jdbc:postgresql://localhost:5432/AGIP
+jdbc.username=postgres
+#jdbc.password=123456
+jdbc.password=Zju123

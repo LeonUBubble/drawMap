@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.zju.gis.mapper.FeaturesMapper">
+
+<select id="findInfoByLayer" parameterType="int" resultType="cn.edu.zju.gis.po.Features">
+	select layerid,featureid,name,value,x,y from features where layerid=#{value}
+</select>
+
+<select id="findLineInfoByLayer" parameterType="int" resultType="cn.edu.zju.gis.po.Features">
+	select layerid,featureid,name,value,linegeom from features where layerid=#{value}
+</select>
+
+<select id="findFeaturesDetail" parameterType="cn.edu.zju.gis.po.FeaturesVo" resultType="cn.edu.zju.gis.po.Features">
+	select layerid,featureid,jsondata from features where layerid=#{layerid} and featureid=#{featureid}
+</select>
+
+<delete id="deleteFeaturesByLayer" parameterType="int">
+	delete from features where layerid=#{value}
+</delete>
+
+<insert id="insertFeature" parameterType="cn.edu.zju.gis.po.Features">
+insert into features(layerid,featureid,name,value,x,y,linegeom,jsondata) 
+values(#{layerid},#{featureid},#{name},#{value},#{x},#{y},#{linegeom},#{jsondata})
+</insert>
+
+
+<update id="updateMap" parameterType="cn.edu.zju.gis.po.Maps">
+	update maps 
+	set 
+		mapname = #{mapname},
+		userid = #{userid},
+		accessibility = #{accessibility},
+		addable = #{addable},
+		layertree = #{layertree},
+		basemapid = #{basemapid},
+		mapstyle = #{mapstyle},
+		maptype = #{maptype}
+	where id = #{id}
+</update>
+<insert id="insertMap" parameterType="cn.edu.zju.gis.po.Maps" useGeneratedKeys="true" keyProperty="id">
+	insert into maps(mapname,userid,accessibility,addable,layertree,basemapid,mapstyle,maptype)
+	values (#{mapname},#{userid},#{accessibility},#{addable},#{layertree},#{basemapid},#{mapstyle},#{maptype})
+</insert>
+<insert id="insertMapLayer" parameterType="cn.edu.zju.gis.po.MapLayer" useGeneratedKeys="true" keyProperty="mlid">
+	insert into maplayer(mapid,layerid,state,style,zIndex)
+	values (#{mapid},#{layerid},#{state},#{style},#{zIndex})
+</insert>
+<select id="findMaps" resultType="cn.edu.zju.gis.po.Maps">
+	select * from maps;
+</select>
+
+<select id="getShortList" parameterType="cn.edu.zju.gis.po.MapsVo" resultType="cn.edu.zju.gis.po.Maps">
+	select id,mapname from maps 
+	where accessibility = 1 
+	<if test="maptype !=null">
+			and maptype = #{maptype}
+		</if>
+	order by id
+	limit #{limit};
+</select>
+
+<select id="findMaps2" parameterType="cn.edu.zju.gis.po.MapsVo" resultType="cn.edu.zju.gis.po.Maps">
+	select * from maps
+	<where>
+		<if test="mapname !=null and mapname !='' ">
+			mapname like '%${mapname}%'
+		</if>
+		<if test="userid !=null and userid !=0 and accessibility==null and addable==null">
+			and userid = #{userid}
+		</if>
+		<if test="userid !=null and userid !=0 and accessibility!=null and addable!=null">
+			and ((accessibility=1 and addable=1) or userid = #{userid}) 
+		</if>
+		</where>
+	order by id
+	limit #{limit}
+	offset #{offset}
+</select>
+
+<update id="updateMapLayer" parameterType="cn.edu.zju.gis.po.MapLayer" useGeneratedKeys="true" keyProperty="mlid">
+	update maplayer
+	set
+		mapid = #{mapid},
+		layerid = #{layerid},
+		state = #{state},
+		style = #{style},
+		zIndex = #{zIndex}
+	where mlid = #{mlid}	
+</update>
+<select id="findMapLayerByMapId" parameterType="int" resultType="cn.edu.zju.gis.po.MapLayer">
+<!-- 这里的写法太偏向pg -->
+	select mlid,id,
+	CASE WHEN state THEN 1
+	ELSE 0
+	END as state,
+	CASE WHEN accessibility THEN 1
+	ELSE 0
+	END as accessibility,
+	style,zindex,layername,userid,storelocation,type
+	from maplayer,layers where maplayer.mapid=#{value} and maplayer.layerid = layers.id;
+</select>
+<delete id="deleteMapLayer" parameterType="cn.edu.zju.gis.po.MapLayer" >
+	delete from maplayer where mlid=#{mlid}
+</delete>
+
+<select id="countMaps"  parameterType="cn.edu.zju.gis.po.MapsVo" resultType="int">
+	select count(*) from maps
+	<where>
+		<if test="mapname !=null and mapname !='' ">
+			mapname like '%${mapname}%'
+		</if>
+		<if test="userid !=null and userid !=0 and accessibility==null and addable==null">
+			and userid = #{userid}
+		</if>
+		<if test="userid !=null and userid !=0 and accessibility!=null and addable!=null">
+			and ((accessibility=1 and addable=1) or userid = #{userid}) 
+		</if>
+		</where>
+</select>
+
+<update id="changeAddable" parameterType="cn.edu.zju.gis.po.MapsVo">
+	update maps
+	set
+		addable = #{addable}
+	where id = #{id}	
+</update>
+
+<update id="changeAccessibility" parameterType="cn.edu.zju.gis.po.MapsVo">
+	update maps
+	set
+		accessibility = #{accessibility}
+	where id = #{id} and userid = #{userid}	
+</update>
+
+</mapper>

@@ -1,0 +1,29 @@
+#MapPanel{
+	overflow-x:hidden;
+}
+#LayerPanel{
+	overflow-x:hidden;
+}
+#modifyDiv {
+	position: relative;
+	padding-left: 40%;
+	padding-top: 50px;
+}
+
+#formchange{
+	padding-left:20%;
+	padding-right:20%;
+	
+}
+
+#painfo,#newinfo,#oldinfo{
+	color: #ef2435;
+}
+.mylabel {
+	display: inline-block;
+	width: 80px;
+}
+
+.messager-body {
+	font-size: 16px;
+}

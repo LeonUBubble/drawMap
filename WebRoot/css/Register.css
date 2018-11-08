@@ -1,0 +1,49 @@
+.messager-body {
+	font-size: 16px;
+}
+
+.info {
+	margin-left: 20px;
+	color: #de3542;
+}
+
+.mylabel {
+	display: inline-block;
+	width:90px;
+}
+
+#head {
+	text-align: center;
+}
+#bganimate {
+	position: absolute;
+	z-index: -1;
+	width:99%;
+	height:100%;
+	top:0px;
+}
+#myform {
+	position: relative;
+	padding-top: 50px;
+	padding-left: 38%;
+}
+canvas{
+	display:block;
+}
+
+#registerbtn{
+	background:#2573f0;
+	color:#ffffff;
+}
+#registerbtn:hover{
+	cursor:pointer;
+	background:#0000ff;
+}
+#cancelbtn{
+	background:#f22424;
+	color:#ffffff;
+}
+#cancelbtn:hover{
+	cursor:pointer;
+	background:#ff0000;
+}

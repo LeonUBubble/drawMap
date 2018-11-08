@@ -1,0 +1,92 @@
+@CHARSET "UTF-8";
+.rectangle {
+            width: 30px;
+            height: 20px;
+            background-color: orangered;
+            border-radius: 10%;
+            float:left
+        }
+.circle {
+            width: 10px;
+            height: 10px;
+            background-color: orangered;
+            border-radius: 50%;
+            float:left;
+            margin-top:5px;
+        }
+.pin {
+		    width: 10px;
+		    height: 10px;
+		    background-color: orangered;
+		    border-radius: 50%;
+		    float:left;
+		    margin-top:5px;
+}
+.triangle{  
+		height:0px;  
+		width:0px;  
+		border-left:5px solid #E3E3E3;  
+		border-right:5px solid #E3E3E3;  
+		border-bottom:10px solid orangered ;
+		margin-top:5px; 
+		float:left; 
+}
+.arrow{  
+		height:0px;  
+		width:0px;  
+		border-left:5px solid #E3E3E3;  
+		border-right:5px solid #E3E3E3 ;  
+		border-bottom:10px solid orangered ;  
+		margin-top:5px;
+		float:left;
+}
+.diamond{  
+	 	 	width: 8px;
+			height: 8px;
+			float: left;
+			background: #8e00ff;
+			/* Rotate */
+			-webkit-transform: rotate(-45deg);
+			-moz-transform: rotate(-45deg);
+			-ms-transform: rotate(-45deg);
+			-o-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			/* Rotate Origin */
+			-webkit-transform-origin: 0 100%;
+			-moz-transform-origin: 0 100%;
+			-ms-transform-origin: 0 100%;
+			-o-transform-origin: 0 100%;
+			transform-origin: 0 100%;
+			margin-top:6px;
+			margin-left:3px;
+			float:left;
+}    
+.rect {
+		    width: 10px;
+		    height: 10px;
+		    background-color: orangered;
+		    border-radius: 0%;
+		    float:left;
+		    margin-top:5px;
+}
+.roundRect {
+		    width: 10px;
+		    height: 10px;
+		    background-color: orangered;
+		    border-radius: 25%;
+		    float:left;
+		    margin-top:5px;
+}
+.line{
+            width: 30px;
+            height: 3px;
+            background-color: orangered;
+            float:left;
+            margin-top:7px;
+        }
+.block{
+            width: 10px;
+            height: 10px;
+            border-radius: 10%;
+            float:left
+}
