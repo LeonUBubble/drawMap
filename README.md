@@ -5,5 +5,4 @@ GIS@ZJU 2017 Summer.
   附属js脚本为mydemo.js
 # 绘图管理核心js脚本：
   yukimap.js
-# visualization_map
 # drawMap
