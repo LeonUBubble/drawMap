@@ -62,10 +62,16 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/commons-logging.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/geocoder-java-0.10.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/gson-2.2.4.jar"/>
-	<classpathentry kind="var" path="TOMCAT_HOME/lib/servlet-api.jar"/>
-	<classpathentry kind="var" path="TOMCAT_HOME/lib/jasper.jar"/>
-	<classpathentry kind="var" path="TOMCAT_HOME/lib/jsp-api.jar"/>
-	<classpathentry kind="var" path="TOMCAT_HOME/lib/el-api.jar"/>
-	<classpathentry kind="var" path="TOMCAT_HOME/lib/annotations-api.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/tomcat-api.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/tomcat-coyote.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/tomcat-dbcp.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/tomcat-jdbc.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/tomcat-util.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/websocket-api.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/jsp-api.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/jasper.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/jasper-el.jar"/>
+	<classpathentry kind="lib" path="/Users/apple/Desktop/cs6400/apache-tomcat-7.0.91/lib/annotations-api.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>
